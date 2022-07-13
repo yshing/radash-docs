@@ -1,0 +1,32 @@
+---
+title: shake
+description: Remove unwanted values from an object
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+A bit like `_.sift` but for objects. By default, it will return a new object with all the undefined attributes removed. You can pass a second function argument to remove any attributes by a custom condition.
+
+```ts
+import { shake } from 'radash'
+
+const ra = {
+  mode: 'god',
+  greek: false,
+  limit: undefined
+}
+
+shake(ra) // => { mode, power }
+shake(ra, a => !!a) // => { mode }
+```
+
+## Testing
+
+<TestingLinkAndPreview module="object" func="shake" />
+
+## Source
+
+<SourceLinkAndPreview module="object" func="shake" />

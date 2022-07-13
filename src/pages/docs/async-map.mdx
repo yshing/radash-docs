@@ -1,0 +1,29 @@
+---
+title: map
+description: Map an array with an async function
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+A map that handles callback functions that return a promise.
+
+```ts
+import { map } from 'radash'
+
+const userIds = [1, 2, 3, 4]
+
+const users = await map(userIds, async (userId) => {
+  return await api.users.find(userId)
+})
+```
+
+## Testing
+
+<TestingLinkAndPreview module="async" func="map" />
+
+## Source
+
+<SourceLinkAndPreview module="async" func="map" />

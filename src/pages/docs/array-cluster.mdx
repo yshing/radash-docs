@@ -1,0 +1,44 @@
+---
+title: cluster
+description: Split a list into many lists of the given size
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Given an array of items and desired cluster count, returns an array containing `n` arrays (where n is the cluster count) with the items split as evenly as possible between each array.
+
+```ts
+import { cluster } from 'radash'
+
+const fish = [{
+  name: 'Marlin',
+  weight: 105,
+  source: 'ocean'
+}, {
+  name: 'Bass',
+  weight: 8,
+  source: 'lake'
+}, {
+  name: 'Trout',
+  weight: 13,
+  source: 'lake'
+}, {
+  name: 'Salmon',
+  weight: 22,
+  source: 'river'
+}]
+
+cluster(fish, 2) // => [[marlin, bass], [trout, salmon]]
+```
+
+
+## Testing
+
+<TestingLinkAndPreview module="array" func="cluster" />
+
+## Source
+
+<SourceLinkAndPreview module="array" func="cluster" />

@@ -1,0 +1,25 @@
+---
+title: random
+description: "Generate a random number"
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Genearate a number within a range. This function is meant for utility use -- not cryptographic.
+
+```ts
+import { random } from 'radash'
+
+random(0, 100) // => a random number between 0 and 100
+```
+
+## Testing
+
+<TestingLinkAndPreview module="number" func="random" />
+
+## Source
+
+<SourceLinkAndPreview module="number" func="random" />

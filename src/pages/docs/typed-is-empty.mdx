@@ -1,0 +1,26 @@
+---
+title: isEmpty
+description: "Determine if a value is empty"
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Pass in a value and get a boolean telling you if the value is empty.
+
+```ts
+import { isEmpty } from 'radash'
+
+isEmpty('hello') // => false
+isEmpty(['hello']) // => false
+```
+
+## Testing
+
+<TestingLinkAndPreview module="typed" func="isEmpty" />
+
+## Source
+
+<SourceLinkAndPreview module="typed" func="isEmpty" />

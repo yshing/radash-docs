@@ -1,0 +1,31 @@
+---
+title: range
+description: Create a range used for iterating
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Given a start, end, and optional step size returns a geneartor that will yeild from start to end by step size (which deafults to one). A hat tip to Python's `range` functionality. Useful for replacing `for (let i = 0)` with `for of`. Range will return a generator that `for of` will call one step at a time so it's safe to create large ranges.
+
+```ts
+import { range } from 'radash'
+
+for (const i of range(0, 200, 10)) {
+  console.log(i) // => 0, 10, 20, 30 ... 190, 200
+}
+
+for (const i of range(0, 5)) {
+  console.log(i) // => 0, 1, 2, 3, 4, 5
+}
+```
+
+## Testing
+
+<TestingLinkAndPreview module="array" func="range" />
+
+## Source
+
+<SourceLinkAndPreview module="array" func="range" />

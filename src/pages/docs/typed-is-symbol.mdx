@@ -1,0 +1,26 @@
+---
+title: isSymbol
+description: "Determine if a value is a Symbol"
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Pass in a value and get a boolean telling you if the value is a Symbol.
+
+```ts
+import { isSymbol } from 'radash'
+
+isSymbol('hello') // => false
+isSymbol(Symbol('hello')) // => true
+```
+
+## Testing
+
+<TestingLinkAndPreview module="typed" func="isSymbol" />
+
+## Source
+
+<SourceLinkAndPreview module="typed" func="isSymbol" />

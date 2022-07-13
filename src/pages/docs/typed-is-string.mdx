@@ -1,0 +1,26 @@
+---
+title: isString
+description: "Determine if a value is a String"
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Pass in a value and get a boolean telling you if the value is a string.
+
+```ts
+import { isString } from 'radash'
+
+isString('hello') // => true
+isString(['hello']) // => false
+```
+
+## Testing
+
+<TestingLinkAndPreview module="typed" func="isString" />
+
+## Source
+
+<SourceLinkAndPreview module="typed" func="isString" />

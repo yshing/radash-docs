@@ -16,7 +16,7 @@ const descriptions = {
 
 export function CorePluginReference() {
   return (
-    <div className="prose prose-slate dark:prose-dark">
+    <div className="prose prose-slate ">
       <table>
         <thead>
           <tr>

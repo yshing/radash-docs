@@ -1,0 +1,39 @@
+---
+title: fork
+description: Split an array into two arrays by a condition
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Given an array of items and a condition, returns two arrays where the first contains all items that passed the condition and the second contains all items that failed the condition.
+
+```ts
+import { fork } from 'radash'
+
+const fish = [{
+  name: 'Marlin',
+  weight: 105,
+  source: 'ocean'
+}, {
+  name: 'Bass',
+  weight: 8,
+  source: 'lake'
+}, {
+  name: 'Trout',
+  weight: 13,
+  source: 'lake'
+}]
+
+const [lakeFish, otherFish] = fork(fish, f => f.source === 'lake')
+```
+
+## Testing
+
+<TestingLinkAndPreview module="array" func="fork" />
+
+## Source
+
+<SourceLinkAndPreview module="array" func="fork" />

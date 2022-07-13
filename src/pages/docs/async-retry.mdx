@@ -1,0 +1,26 @@
+---
+title: retry
+description: Run an async function retrying if it fails
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+The `_.retry` function allows you to run an async function and automagically retry it if it fails. Given the async func to run, an optional max number of retries (`r`), and an optional milliseconds to delay between retries (`d`), the given async function will be called, retrying `r` many times, and waiting `d` milliseconds between retries.
+```ts
+import { retry } from 'radash'
+
+const users = await retry(api.users.list)
+const users = await retry(api.users.list, 2)
+const users = await retry(api.users.list, 2, 1000)
+```
+
+## Testing
+
+<TestingLinkAndPreview module="async" func="retry" />
+
+## Source
+
+<SourceLinkAndPreview module="async" func="retry" />

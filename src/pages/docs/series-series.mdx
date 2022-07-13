@@ -1,0 +1,36 @@
+---
+title: series
+description: Create an ordered series object
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Sometimes you have an enum or union type, possibly a status, that has inherint order and you need to work with values as though they're ordered. The `series` function takes many values and returns an object that let's you do ordered logic on those values.
+
+```ts
+import { series } from 'radash'
+
+type Weekday = 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday';
+
+const weekdaySeries = _.series<Weekday>(
+  'monday',
+  'tuesday',
+  'wednesday',
+  'thursday',
+  'friday'
+)
+
+weekdaySeries.min('tuesday', 'thursday') // => 'tuesday'
+weekdaySeries.max('wednesday', 'monday') // => 'wednesday'
+```
+
+## Testing
+
+<TestingLinkAndPreview module="series" func="series" />
+
+## Source
+
+<SourceLinkAndPreview module="series" func="series" />

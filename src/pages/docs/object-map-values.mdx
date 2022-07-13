@@ -1,0 +1,30 @@
+---
+title: mapValues
+description: Map over the keys of an object
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Given an object and a mapping function, returns a new object with all the values mapped.
+
+```ts
+import { mapValues } from 'radash'
+
+const ra = {
+  mode: 'god',
+  power: 'sun'
+}
+
+mapValues(ra, k => k.toUpperCase()) // => { mode: 'GOD', power: 'SUN' }
+```
+
+## Testing
+
+<TestingLinkAndPreview module="object" func="mapValues" />
+
+## Source
+
+<SourceLinkAndPreview module="object" func="mapValues" />

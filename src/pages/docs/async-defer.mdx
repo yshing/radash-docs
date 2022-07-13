@@ -1,0 +1,33 @@
+---
+title: defer
+description: Run an async function with deferred functions
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+The `_.defer` functions lets you run an async function, registering functions as you go that should be deferred until the async function completes, and then executed. This is really useful in scripts where failure up to or after a specific point will require some cleanup. It's a bit like a `finally` block. A hat tip to Swift's `defer` for the inspiration.  
+
+The function given to `_.defer` is called with a single `register` function argument that can be used to register the work you want to be called when the function completes.
+
+```ts
+import { defer } from 'radash'
+
+await defer(async (cleanup) => {
+  const buildDir = await createBuildDir()
+
+  cleanup(() => fs.unlink(buildDir))
+
+  await build()
+})
+```
+
+## Testing
+
+<TestingLinkAndPreview module="async" func="defer" />
+
+## Source
+
+<SourceLinkAndPreview module="async" func="defer" />

@@ -75,7 +75,7 @@ export const ClassTable = memo(
         </Heading>
         <div
           className={clsx(
-            'overflow-hidden lg:overflow-auto scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar:bg-transparent scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 scrollbar-track:!rounded dark:scrollbar-track:!bg-slate-500/[0.16] dark:scrollbar-thumb:!bg-slate-500/50',
+            'overflow-hidden lg:overflow-auto scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar:bg-transparent scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 scrollbar-track:!rounded  ',
             isCollapsed && 'max-h-96',
             !isScrollable && isCollapsed && 'lg:max-h-[none]',
             isScrollable && 'supports-scrollbars:pr-2 lg:max-h-96'
@@ -85,14 +85,14 @@ export const ClassTable = memo(
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr>
-                  <th className="sticky z-10 top-0 text-sm leading-6 font-semibold text-slate-700 bg-white p-0 dark:bg-slate-900 dark:text-slate-300">
-                    <div className="py-2 pr-2 border-b border-slate-200 dark:border-slate-400/20">
+                  <th className="sticky z-10 top-0 text-sm leading-6 font-semibold text-slate-700 bg-white p-0  ">
+                    <div className="py-2 pr-2 border-b border-slate-200 ">
                       Class
                     </div>
                   </th>
                   <th
                     className={clsx(
-                      'sticky z-10 top-0 text-sm leading-6 font-semibold text-slate-700 bg-white p-0 dark:bg-slate-900 dark:text-slate-300',
+                      'sticky z-10 top-0 text-sm leading-6 font-semibold text-slate-700 bg-white p-0  ',
                       {
                         'hidden sm:table-cell': preview,
                       }
@@ -100,7 +100,7 @@ export const ClassTable = memo(
                   >
                     <div
                       className={clsx(
-                        'py-2 pl-2 border-b border-slate-200 dark:border-slate-400/20',
+                        'py-2 pl-2 border-b border-slate-200 ',
                         { 'pr-2': preview }
                       )}
                     >
@@ -108,8 +108,8 @@ export const ClassTable = memo(
                     </div>
                   </th>
                   {preview && (
-                    <th className="sticky z-10 top-0 text-sm leading-6 font-semibold text-slate-700 bg-white p-0 dark:bg-slate-900 dark:text-slate-300">
-                      <div className="py-2 pl-2 border-b border-slate-200 dark:border-slate-400/20">
+                    <th className="sticky z-10 top-0 text-sm leading-6 font-semibold text-slate-700 bg-white p-0  ">
+                      <div className="py-2 pl-2 border-b border-slate-200 ">
                         <span className="sr-only">Preview</span>&nbsp;
                       </div>
                     </th>
@@ -126,9 +126,9 @@ export const ClassTable = memo(
                       <td
                         translate="no"
                         className={clsx(
-                          'py-2 pr-2 font-mono font-medium text-xs leading-6 text-sky-500 whitespace-nowrap dark:text-sky-400',
+                          'py-2 pr-2 font-mono font-medium text-xs leading-6 text-red-500 whitespace-nowrap ',
                           {
-                            'border-t border-slate-100 dark:border-slate-400/10': i !== 0,
+                            'border-t border-slate-100 ': i !== 0,
                           }
                         )}
                       >
@@ -137,9 +137,9 @@ export const ClassTable = memo(
                       <td
                         translate="no"
                         className={clsx(
-                          'py-2 pl-2 font-mono text-xs leading-6 text-indigo-600 whitespace-pre dark:text-indigo-300',
+                          'py-2 pl-2 font-mono text-xs leading-6 text-indigo-600 whitespace-pre ',
                           {
-                            'border-t border-slate-100 dark:border-slate-400/10': i !== 0,
+                            'border-t border-slate-100 ': i !== 0,
                             'hidden sm:table-cell sm:pr-2': preview,
                           }
                         )}
@@ -153,7 +153,7 @@ export const ClassTable = memo(
                         preview(properties, {
                           utility,
                           className:
-                            i === 0 ? '' : 'border-t border-slate-100 dark:border-slate-400/10',
+                            i === 0 ? '' : 'border-t border-slate-100 ',
                         })}
                     </tr>
                   )
@@ -161,7 +161,7 @@ export const ClassTable = memo(
               </tbody>
             </table>
           )}
-          <div className="sticky bottom-0 h-px -mt-px bg-slate-200 dark:bg-slate-400/20" />
+          <div className="sticky bottom-0 h-px -mt-px bg-slate-200 " />
         </div>
         {isCollapsable && (
           <div
@@ -174,7 +174,7 @@ export const ClassTable = memo(
           >
             <div
               className={clsx(
-                'absolute inset-x-0 bg-gradient-to-t from-white dark:from-slate-900',
+                'absolute inset-x-0 bg-gradient-to-t from-white ',
                 isCollapsed
                   ? '-top-8 bottom-0'
                   : '-top-4 bottom-[calc(-1*(1rem+env(safe-area-inset-bottom,0)))]'
@@ -183,7 +183,7 @@ export const ClassTable = memo(
             <button
               type="button"
               onClick={() => setIsCollapsed(!isCollapsed)}
-              className="relative text-sm font-semibold text-slate-900 bg-white py-2 px-4 rounded-full ring-1 ring-slate-900/10 shadow-sm dark:bg-slate-800 dark:text-slate-200 dark:highlight-white/5"
+              className="relative text-sm font-semibold text-slate-900 bg-white py-2 px-4 rounded-full ring-1 ring-slate-900/10 shadow-sm   "
             >
               {isCollapsed ? 'Show all classes' : 'Show fewer classes'}
             </button>

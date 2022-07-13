@@ -1,0 +1,54 @@
+---
+title: "Core Concepts"
+description: "Why is Radash so raw and so dashing?"
+---
+
+## Simple
+
+### Readable
+
+The Radash source is easy to read and understand. We'll don't make you navigate through internal library modules and classes, reading a hundred lines of code, to understand what a function does or how it works.  
+
+As an example, here's a look at [the source](https://github.com/rayepps/radash/blob/master/src/curry.ts#L7-L9) for the `_.compose` function.
+
+```ts
+export const compose = (...funcs: Func[]) => {
+  return funcs.reverse().reduce((acc, fn) => fn(acc))
+}
+```
+
+### Semi-Functional
+
+Functional programming has incredible design patterns that we often pull from. However, we're not dire hard functional engineers. You don't have to understand monads to use Radash. The vast majority of radash functions are pure and composable.
+
+## Safe
+
+### Types
+
+Radash is written in Typescript and provides full typing out of the box. 
+
+### Functions
+
+Lodash provides functions we fundamentally disagree with. Radash either implement those in a safe way or doesn't supply them at all.
+
+In Lodash
+```ts
+import { get } from 'lodash'
+
+// What's the type of x? Nobody knows
+const x = get(state, 'user.admins[0].name')
+
+// Fat finger? Nobody knows
+const y = get(state, 'user.abjins[0].name')
+```
+
+In Radash
+```ts
+import { get } from 'radash'
+
+// Correctly typed as string
+const x = get(state, s => s.user.admins[0].name)
+
+// Fat finger? Error during build
+const y = get(state, s => s.user.abjins[0].name)
+```

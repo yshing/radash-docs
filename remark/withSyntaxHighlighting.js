@@ -33,11 +33,8 @@ module.exports.withSyntaxHighlighting = () => {
       } else {
         node.value = [
           `<pre class="language-${node.lang}">`,
-          `<code class="dark:hidden language-${node.lang}">`,
+          `<code class="language-${node.lang}">`,
           highlightCode(lightCode, node.lang),
-          '</code>',
-          `<code class="hidden dark:block language-${node.lang}">`,
-          highlightCode(darkCode, node.lang),
           '</code>',
           '</pre>',
         ]

@@ -1,0 +1,32 @@
+---
+title: omit
+description: Omit unwanted attributes from an object
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Given an object and a list of keys in the object, returns a new object without any of the given keys.
+
+```ts
+import { omit } from 'radash'
+
+const fish = {
+  name: 'Bass',
+  weight: 8,
+  source: 'lake',
+  barckish: false
+}
+
+omit(fish, ['name', 'source]) // => { weight, brackish }
+```
+
+## Testing
+
+<TestingLinkAndPreview module="object" func="omit" />
+
+## Source
+
+<SourceLinkAndPreview module="object" func="omit" />

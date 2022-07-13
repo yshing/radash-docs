@@ -1,0 +1,27 @@
+---
+title: isNumber
+description: "Determine if a value is a number"
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Pass in a value and get a boolean telling you if the value is a number.
+
+```ts
+import { isNumber } from 'radash'
+
+isNumber('hello') // => false
+isNumber(['hello']) // => false
+isNumber(12) // => true
+```
+
+## Testing
+
+<TestingLinkAndPreview module="typed" func="isNumber" />
+
+## Source
+
+<SourceLinkAndPreview module="typed" func="isNumber" />

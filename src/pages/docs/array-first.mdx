@@ -1,0 +1,28 @@
+---
+title: first
+description: Get the first item from a list
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Given an array of items return the first item or a default value if no items exists.
+
+```ts
+import { first } from 'radash'
+
+const fish = ['marlin', 'bass', 'trout']
+
+const firstFish = first(fish) // => 'marlin'
+const firstItem = first([], 'bass') // => 'bass' 
+```
+
+## Testing
+
+<TestingLinkAndPreview module="array" func="first" />
+
+## Source
+
+<SourceLinkAndPreview module="array" func="first" />

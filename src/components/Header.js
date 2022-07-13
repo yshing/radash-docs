@@ -6,42 +6,6 @@ import { Logo } from '@/components/Logo'
 import { Dialog } from '@headlessui/react'
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
-import { ThemeSelect, ThemeToggle } from './ThemeToggle'
-
-function Featured() {
-  return (
-    <Link href="/blog/tailwindcss-v3-1">
-      <a className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20">
-        <strong className="font-semibold">Tailwind CSS v3.1</strong>
-        <svg
-          width="2"
-          height="2"
-          fill="currentColor"
-          aria-hidden="true"
-          className="ml-2 text-sky-600 dark:text-sky-400/70"
-        >
-          <circle cx="1" cy="1" r="1" />
-        </svg>
-        <span className="ml-2">Arbitrary variants, TypeScript types, and more</span>
-        <svg
-          width="3"
-          height="6"
-          className="ml-3 overflow-visible text-sky-300 dark:text-sky-400"
-          aria-hidden="true"
-        >
-          <path
-            d="M0 0L3 3L0 6"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </a>
-    </Link>
-  )
-}
 
 export function NavPopover({ display = 'md:hidden', className, ...props }) {
   let [isOpen, setIsOpen] = useState(false)
@@ -61,7 +25,7 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
     <div className={clsx(className, display)} {...props}>
       <button
         type="button"
-        className="text-slate-500 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+        className="text-slate-500 w-8 h-8 flex items-center justify-center hover:text-slate-600  "
         onClick={() => setIsOpen(true)}
       >
         <span className="sr-only">Navigation</span>
@@ -81,11 +45,11 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
         open={isOpen}
         onClose={setIsOpen}
       >
-        <Dialog.Overlay className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-slate-900/80" />
-        <div className="fixed top-4 right-4 w-full max-w-xs bg-white rounded-lg shadow-lg p-6 text-base font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-400 dark:highlight-white/5">
+        <Dialog.Overlay className="fixed inset-0 bg-black/20 " />
+        <div className="fixed top-4 right-4 w-full max-w-xs bg-white rounded-lg shadow-lg p-6 text-base font-semibold text-slate-900   ">
           <button
             type="button"
-            className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+            className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600  "
             onClick={() => setIsOpen(false)}
           >
             <span className="sr-only">Close navigation</span>
@@ -100,44 +64,21 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
             </svg>
           </button>
           <ul className="space-y-6">
-            <NavItems />
             <li>
               <a
-                href="https://github.com/tailwindlabs/tailwindcss"
-                className="hover:text-sky-500 dark:hover:text-sky-400"
+                href="https://github.com/rayepps/radash"
+                className="hover:text-red-500 "
               >
                 GitHub
               </a>
             </li>
           </ul>
-          <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-200/10">
-            <ThemeSelect />
+          <div className="mt-6 pt-6 border-t border-slate-200 ">
+
           </div>
         </div>
       </Dialog>
     </div>
-  )
-}
-
-export function NavItems() {
-  return (
-    <>
-      <li>
-        <Link href="/docs/installation">
-          <a className="hover:text-sky-500 dark:hover:text-sky-400">Docs</a>
-        </Link>
-      </li>
-      <li>
-        <a href="https://tailwindui.com" className="hover:text-sky-500 dark:hover:text-sky-400">
-          Components
-        </a>
-      </li>
-      <li>
-        <Link href="/blog">
-          <a className="hover:text-sky-500 dark:hover:text-sky-400">Blog</a>
-        </Link>
-      </li>
-    </>
   )
 }
 
@@ -162,67 +103,36 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
 
   return (
     <>
-      <div className="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none">
-        <div className="w-[108rem] flex-none flex justify-end">
-          <picture>
-            <source srcSet={require('@/img/beams/docs@30.avif').default} type="image/avif" />
-            <img
-              src={require('@/img/beams/docs@tinypng.png').default}
-              alt=""
-              className="w-[71.75rem] flex-none max-w-none dark:hidden"
-            />
-          </picture>
-          <picture>
-            <source srcSet={require('@/img/beams/docs-dark@30.avif').default} type="image/avif" />
-            <img
-              src={require('@/img/beams/docs-dark@tinypng.png').default}
-              alt=""
-              className="w-[90rem] flex-none max-w-none hidden dark:block"
-            />
-          </picture>
-        </div>
-      </div>
       <div
         className={clsx(
-          'sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06]',
+          'sticky top-0 z-40 w-full flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 ',
           isOpaque
-            ? 'bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75'
-            : 'bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent'
+            ? 'bg-white '
+            : 'bg-white/95 '
         )}
       >
         <div className="max-w-8xl mx-auto">
           <div
             className={clsx(
-              'py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10',
+              'py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 ',
               hasNav ? 'mx-4 lg:mx-0' : 'px-4'
             )}
           >
-            <div className="relative flex items-center">
+            <div className="relative flex items-center justify-between">
               <Link href="/">
                 <a
-                  className="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto"
-                  onContextMenu={(e) => {
-                    e.preventDefault()
-                    Router.push('/brand')
-                  }}
+                  className="mr-3 flex-none overflow-hidden md:w-auto"
                 >
-                  <span className="sr-only">Tailwind CSS home page</span>
+                  <span className="sr-only">Radash documentation home page</span>
                   <Logo className="w-auto h-5" />
                 </a>
               </Link>
               <VersionSwitcher />
-              <Featured />
-              <div className="relative hidden lg:flex items-center ml-auto">
-                <nav className="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
-                  <ul className="flex space-x-8">
-                    <NavItems />
-                  </ul>
-                </nav>
-                <div className="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
-                  <ThemeToggle panelClassName="mt-8" />
+              <div className="relative lg:flex items-center ml-auto">
+                <div className="flex items-center border-slate-200 ml-6 pl-6 ">
                   <a
-                    href="https://github.com/tailwindlabs/tailwindcss"
-                    className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
+                    href="https://github.com/rayepps/radash"
+                    className="ml-6 block text-slate-400 hover:text-slate-500 "
                   >
                     <span className="sr-only">Tailwind CSS on GitHub</span>
                     <svg
@@ -236,7 +146,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                   </a>
                 </div>
               </div>
-              <SearchButton className="ml-auto text-slate-500 w-8 h-8 -my-1 flex items-center justify-center hover:text-slate-600 lg:hidden dark:text-slate-400 dark:hover:text-slate-300">
+              {/* <SearchButton className="ml-auto text-slate-500 w-8 h-8 -my-1 flex items-center justify-center hover:text-slate-600 lg:hidden  ">
                 <span className="sr-only">Search</span>
                 <svg
                   width="24"
@@ -251,16 +161,15 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                   <path d="m19 19-3.5-3.5" />
                   <circle cx="11" cy="11" r="6" />
                 </svg>
-              </SearchButton>
-              <NavPopover className="ml-2 -my-1" display="lg:hidden" />
+              </SearchButton> */}
             </div>
           </div>
           {hasNav && (
-            <div className="flex items-center p-4 border-b border-slate-900/10 lg:hidden dark:border-slate-50/[0.06]">
+            <div className="flex items-center p-4 border-b border-slate-900/10 lg:hidden ">
               <button
                 type="button"
                 onClick={() => onNavToggle(!navIsOpen)}
-                className="text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+                className="text-slate-500 hover:text-slate-600  "
               >
                 <span className="sr-only">Navigation</span>
                 <svg width="24" height="24">
@@ -294,7 +203,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                       </svg>
                     </li>
                   )}
-                  <li className="font-semibold text-slate-900 truncate dark:text-slate-200">
+                  <li className="font-semibold text-slate-900 truncate ">
                     {title}
                   </li>
                 </ol>

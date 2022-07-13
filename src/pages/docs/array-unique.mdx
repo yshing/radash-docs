@@ -1,0 +1,39 @@
+---
+title: unique
+description: Remove duplicates from an array
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Given an array of items -- and optionally, a function to determine their identity -- return a new array without any duplicates.
+
+```ts
+import { unique } from 'radash'
+
+const fish = [{
+  name: 'Marlin',
+  weight: 105,
+  source: 'ocean'
+}, {
+  name: 'Salmon',
+  weight: 22,
+  source: 'river'
+}, {
+  name: 'Salmon',
+  weight: 22,
+  source: 'river'
+}]
+
+unique(fish, f => f.name) // => [marlin, salmon]
+```
+
+## Testing
+
+<TestingLinkAndPreview module="array" func="unique" />
+
+## Source
+
+<SourceLinkAndPreview module="array" func="unique" />

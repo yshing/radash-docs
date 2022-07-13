@@ -11,7 +11,7 @@ export function Steps({ steps, code, level = 2 }) {
 
   return (
     <>
-      <div className="hidden sm:block absolute top-0 left-[15%] pt-[40%] 2xl:left-[40%] 2xl:pt-[8%] dark:hidden">
+      <div className="hidden sm:block absolute top-0 left-[15%] pt-[40%] 2xl:left-[40%] 2xl:pt-[8%] ">
         <img
           src={require('@/img/beams/installation.jpg').default}
           alt=""
@@ -23,17 +23,17 @@ export function Steps({ steps, code, level = 2 }) {
           <li
             key={step.title}
             className={clsx(
-              'relative pl-10 xl:grid grid-cols-5 gap-16 before:content-[counter(step)] before:absolute before:left-0 before:flex before:items-center before:justify-center before:w-[calc(1.375rem+1px)] before:h-[calc(1.375rem+1px)] before:text-[0.625rem] before:font-bold before:text-slate-700 before:rounded-md before:shadow-sm before:ring-1 before:ring-slate-900/5 dark:before:bg-slate-700 dark:before:text-slate-200 dark:before:ring-0 dark:before:shadow-none dark:before:highlight-white/5',
+              'relative pl-10 xl:grid grid-cols-5 gap-16 before:content-[counter(step)] before:absolute before:left-0 before:flex before:items-center before:justify-center before:w-[calc(1.375rem+1px)] before:h-[calc(1.375rem+1px)] before:text-[0.625rem] before:font-bold before:text-slate-700 before:rounded-md before:shadow-sm before:ring-1 before:ring-slate-900/5     ',
               index !== steps.length - 1 &&
-                'pb-8 after:absolute after:top-[calc(1.875rem+1px)] after:bottom-0 after:left-[0.6875rem] after:w-px after:bg-slate-200 dark:after:bg-slate-200/5'
+                'pb-8 after:absolute after:top-[calc(1.875rem+1px)] after:bottom-0 after:left-[0.6875rem] after:w-px after:bg-slate-200 '
             )}
             style={{ counterIncrement: 'step' }}
           >
             <div className="mb-6 col-span-2 xl:mb-0">
-              <StepHeading className="text-sm leading-6 text-slate-900 font-semibold mb-2 dark:text-slate-200">
+              <StepHeading className="text-sm leading-6 text-slate-900 font-semibold mb-2 ">
                 {step.title}
               </StepHeading>
-              <div className="prose prose-slate prose-sm dark:prose-dark">
+              <div className="prose prose-slate prose-sm ">
                 <step.body />
               </div>
             </div>
@@ -103,7 +103,7 @@ function CopyButton({ code }) {
             width="16"
             height="6"
             viewBox="0 0 16 6"
-            className="text-sky-500 absolute top-full left-1/2 -mt-px -ml-2"
+            className="text-red-500 absolute top-full left-1/2 -mt-px -ml-2"
           >
             <path
               fillRule="evenodd"
@@ -162,7 +162,7 @@ function Snippet({ code, highlightedCode }) {
   }
 
   return (
-    <div className="relative z-10 -ml-10 col-span-3 bg-slate-800 rounded-xl shadow-lg xl:ml-0 dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10">
+    <div className="relative z-10 -ml-10 col-span-3 bg-slate-800 rounded-xl shadow-lg xl:ml-0    ">
       <TabBar name={code.name}>
         <CopyButton code={code.code} />
       </TabBar>

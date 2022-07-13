@@ -1,0 +1,36 @@
+---
+title: group
+description: "Sort an array of items into groups"
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Given an array of items, `group` will build up an object where each key is an array of the items that belong in that group. Generally, this can be useful to categorize an array.
+
+```ts
+import { group } from 'radash'
+
+const fish = [{
+  name: 'Marlin',
+  source: 'ocean'
+}, {
+  name: 'Bass',
+  source: 'lake'
+}, {
+  name: 'Trout',
+  source: 'lake'
+}]
+
+const fishBySource = group(fish, f => f.source) // => { ocean: [marlin], lake: [bass, trout] }
+```
+
+## Testing
+
+<TestingLinkAndPreview module="array" func="group" />
+
+## Source
+
+<SourceLinkAndPreview module="array" func="group" />

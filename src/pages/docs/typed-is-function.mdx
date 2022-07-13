@@ -1,0 +1,27 @@
+---
+title: isFunction
+description: "Determine if a value is a Function"
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Pass in a value and get a boolean telling you if the value is a function.
+
+```ts
+import { isFunction } from 'radash'
+
+isFunction('hello') // => false
+isFunction(['hello']) // => false
+isFunction(() => 'hello') // => true
+```
+
+## Testing
+
+<TestingLinkAndPreview module="typed" func="isFunction" />
+
+## Source
+
+<SourceLinkAndPreview module="typed" func="isFunction" />

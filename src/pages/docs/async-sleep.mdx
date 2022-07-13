@@ -1,0 +1,25 @@
+---
+title: sleep
+description: Asynchronously wait for time to pass
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+The `_.sleep` functino allows you to delay in milliseconds.
+
+```ts
+import { sleep } from 'radash'
+
+await sleep(2000) // => waits 2 seconds
+```
+
+## Testing
+
+<TestingLinkAndPreview module="async" func="sleep" />
+
+## Source
+
+<SourceLinkAndPreview module="async" func="sleep" />

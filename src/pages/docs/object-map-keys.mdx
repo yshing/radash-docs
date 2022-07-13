@@ -1,0 +1,30 @@
+---
+title: mapKeys
+description: Map over the keys of an object
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Given an object and a mapping function, returns a new object with all the keys mapped.
+
+```ts
+import { mapKeys } from 'radash'
+
+const ra = {
+  mode: 'god',
+  power: 'sun'
+}
+
+mapKeys(ra, k => k.toUpperCase()) // => { MODE, POWER }
+```
+
+## Testing
+
+<TestingLinkAndPreview module="object" func="mapKeys" />
+
+## Source
+
+<SourceLinkAndPreview module="object" func="mapKeys" />

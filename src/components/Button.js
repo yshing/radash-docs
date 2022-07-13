@@ -24,20 +24,8 @@ let colors = {
   ],
 }
 
-let colorsDark = {
-  gray: [
-    'dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600 dark:hover:text-white dark:focus:ring-slate-500',
-    'dark:text-slate-500 dark:group-hover:text-slate-400',
-  ],
-  sky: [
-    'dark:bg-sky-500 dark:text-sky-50 dark:hover:bg-sky-400 dark:hover:text-white dark:focus:ring-sky-200',
-    'dark:text-sky-300 dark:group-hover:text-sky-100',
-  ],
-}
-
 export function Button({
   color = 'gray',
-  darkColor = color,
   href,
   children,
   className = '',
@@ -45,7 +33,6 @@ export function Button({
   ...props
 }) {
   let colorClasses = typeof color === 'string' ? colors[color] : color
-  let darkColorClasses = typeof darkColor === 'string' ? colorsDark[darkColor] || [] : darkColor
 
   return (
     <Link href={href}>
@@ -53,7 +40,6 @@ export function Button({
         className={clsx(
           'group inline-flex items-center h-9 rounded-full text-sm font-semibold whitespace-nowrap px-3 focus:outline-none focus:ring-2',
           colorClasses[0],
-          darkColorClasses[0],
           className,
           reverse && 'flex-row-reverse'
         )}
@@ -65,7 +51,6 @@ export function Button({
             'overflow-visible',
             reverse ? 'mr-3' : 'ml-3',
             colorClasses[1],
-            darkColorClasses[1]
           )}
           width="3"
           height="6"

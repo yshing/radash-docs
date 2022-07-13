@@ -1,0 +1,27 @@
+---
+title: draw
+description: Get a random item from a list
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Draw, as in 'to draw a card from a deck', is used to get a random item from an array.
+
+```ts
+import { draw } from 'radash'
+
+const fish = ['marlin', 'bass', 'trout']
+
+draw(fish) // => a random fish
+```
+
+## Testing
+
+<TestingLinkAndPreview module="array" func="draw" />
+
+## Source
+
+<SourceLinkAndPreview module="array" func="draw" />

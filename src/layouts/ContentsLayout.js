@@ -36,7 +36,7 @@ function TableOfContents({ tableOfContents, currentSection }) {
 
   return (
     <>
-      <h5 className="text-slate-900 font-semibold mb-4 text-sm leading-6 dark:text-slate-100">
+      <h5 className="text-slate-900 font-semibold mb-4 text-sm leading-6 ">
         On this page
       </h5>
       <ul className="text-slate-700 text-sm leading-6">
@@ -50,8 +50,8 @@ function TableOfContents({ tableOfContents, currentSection }) {
                   'block py-1',
                   pageHasSubsections ? 'font-medium' : '',
                   isActive(section)
-                    ? 'font-medium text-sky-500 dark:text-sky-400'
-                    : 'hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300'
+                    ? 'font-medium text-red-500 '
+                    : 'hover:text-slate-900  '
                 )}
               >
                 {section.title}
@@ -65,15 +65,15 @@ function TableOfContents({ tableOfContents, currentSection }) {
                   className={clsx(
                     'group flex items-start py-1',
                     isActive(subsection)
-                      ? 'text-sky-500 dark:text-sky-400'
-                      : 'hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300'
+                      ? 'text-red-500 '
+                      : 'hover:text-slate-900  '
                   )}
                 >
                   <svg
                     width="3"
                     height="24"
                     viewBox="0 -9 3 24"
-                    className="mr-2 text-slate-400 overflow-visible group-hover:text-slate-600 dark:text-slate-600 dark:group-hover:text-slate-500"
+                    className="mr-2 text-slate-400 overflow-visible group-hover:text-slate-600  "
                   >
                     <path
                       d="M0 0L3 3L0 6"
@@ -189,7 +189,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
             <ClassTable {...classes} />
             <div
               id="content-wrapper"
-              className="relative z-20 prose prose-slate mt-12 dark:prose-dark"
+              className="relative z-20 prose prose-slate mt-12 "
             >
               <MDXProvider components={{ Heading }}>{children}</MDXProvider>
             </div>
@@ -197,7 +197,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
         ) : (
           <div
             id="content-wrapper"
-            className="relative z-20 prose prose-slate mt-8 dark:prose-dark"
+            className="relative z-20 prose prose-slate mt-8 "
           >
             <MDXProvider components={{ Heading }}>{children}</MDXProvider>
           </div>
@@ -206,9 +206,9 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
 
       <Footer previous={prev} next={next}>
         <Link
-          href={`https://github.com/tailwindlabs/tailwindcss.com/edit/master/src/pages${router.pathname}.mdx`}
+          href={`https://github.com/rayepps/radash-docs/edit/master/src/pages${router.pathname}.mdx`}
         >
-          <a className="hover:text-slate-900 dark:hover:text-slate-400">Edit this page on GitHub</a>
+          <a className="hover:text-slate-900 ">Edit this page on GitHub</a>
         </Link>
       </Footer>
 

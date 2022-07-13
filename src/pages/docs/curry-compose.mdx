@@ -1,0 +1,52 @@
+---
+title: compose
+description: Create a composition of functions
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+In a composition of functions, each function is given the next function as an argument and must call it to continue executing.
+
+```ts
+import { compose } from 'radash'
+
+const useZero = (fn: any) => () => fn(0)
+const objectize = (fn: any) => (num: any) => fn({ num })
+const incrament = (fn: any) => ({ num }: any) => fn({ num: num + 1 })
+const returnArg = (arg: any) => (args: any) => args[arg]
+
+const composed = compose(
+  useZero,
+  objectize,
+  incrament,
+  incrament,
+  returnArg('num')
+)
+
+composed() // => 2
+```
+
+This can be a little jarring if you haven't seen it before. Here's a broken down composition. It's equivelent to the code above.
+
+```ts
+const decomposed = (
+  useZero(
+    objectize(
+      incrament(
+        incrament(
+          returnArg('num')))))
+)
+
+decomposed() // => 2
+```
+
+## Testing
+
+<TestingLinkAndPreview module="curry" func="compose" />
+
+## Source
+
+<SourceLinkAndPreview module="curry" func="compose" />

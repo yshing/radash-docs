@@ -7,7 +7,6 @@ module.exports = {
     optimizeUniversalDefaults: true,
   },
   content: ['./src/**/*.{js,jsx,mdx,html}', './remark/**/*.js'],
-  darkMode: 'class',
   theme: {
     // `demo-*` screens are used for the "mobile-first" responsive demo
     screens: {
@@ -191,50 +190,7 @@ module.exports = {
               marginTop: `${12 / 14}em`,
             },
           },
-        },
-        dark: {
-          css: {
-            color: theme('colors.slate.400'),
-            'h2, h3, h4, thead th': {
-              color: theme('colors.slate.200'),
-            },
-            'h2 small, h3 small, h4 small': {
-              color: theme('colors.slate.400'),
-            },
-            kbd: {
-              background: theme('colors.slate.700'),
-              borderColor: theme('colors.slate.600'),
-              color: theme('colors.slate.200'),
-            },
-            code: {
-              color: theme('colors.slate.200'),
-            },
-            hr: {
-              borderColor: theme('colors.slate.200'),
-              opacity: '0.05',
-            },
-            pre: {
-              boxShadow: 'inset 0 0 0 1px rgb(255 255 255 / 0.1)',
-            },
-            a: {
-              color: theme('colors.white'),
-              borderBottomColor: theme('colors.sky.400'),
-            },
-            strong: {
-              color: theme('colors.slate.200'),
-            },
-            thead: {
-              color: theme('colors.slate.300'),
-              borderBottomColor: 'rgb(148 163 184 / 0.2)',
-            },
-            'tbody tr': {
-              borderBottomColor: 'rgb(148 163 184 / 0.1)',
-            },
-            blockQuote: {
-              color: theme('colors.white'),
-            },
-          },
-        },
+        }
       }),
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
@@ -273,16 +229,11 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
     function ({ addVariant }) {
-      addVariant(
-        'supports-backdrop-blur',
-        '@supports (backdrop-filter: blur(0)) or (-webkit-backdrop-filter: blur(0))'
-      )
       addVariant('supports-scrollbars', '@supports selector(::-webkit-scrollbar)')
       addVariant('children', '& > *')
       addVariant('scrollbar', '&::-webkit-scrollbar')
       addVariant('scrollbar-track', '&::-webkit-scrollbar-track')
       addVariant('scrollbar-thumb', '&::-webkit-scrollbar-thumb')
-      addVariant('demo-dark', '.demo-dark &')
     },
     function ({ matchUtilities, theme }) {
       matchUtilities(
@@ -303,39 +254,7 @@ module.exports = {
         { values: flattenColorPalette(theme('backgroundColor')), type: 'color' }
       )
     },
-    function ({ addUtilities, theme }) {
-      let backgroundSize = '7.07px 7.07px'
-      let backgroundImage = (color) =>
-        `linear-gradient(135deg, ${color} 10%, transparent 10%, transparent 50%, ${color} 50%, ${color} 60%, transparent 60%, transparent 100%)`
-      let colors = Object.entries(theme('backgroundColor')).filter(
-        ([, value]) => typeof value === 'object' && value[400] && value[500]
-      )
-
-      addUtilities(
-        Object.fromEntries(
-          colors.map(([name, colors]) => {
-            let backgroundColor = colors[400] + '1a' // 10% opacity
-            let stripeColor = colors[500] + '80' // 50% opacity
-
-            return [
-              `.bg-stripes-${name}`,
-              {
-                backgroundColor,
-                backgroundImage: backgroundImage(stripeColor),
-                backgroundSize,
-              },
-            ]
-          })
-        )
-      )
-
-      addUtilities({
-        '.bg-stripes-white': {
-          backgroundImage: backgroundImage('rgba(255 255 255 / 0.75)'),
-          backgroundSize,
-        },
-      })
-
+    function ({ addUtilities }) {
       addUtilities({
         '.ligatures-none': {
           fontVariantLigatures: 'none',
