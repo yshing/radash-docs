@@ -145,6 +145,7 @@ function Nav({ nav, children, fallbackHref, mobile = false }) {
         {nav &&
           Object.keys(nav)
             .map((category) => {
+              console.log(nav[category])
               let publishedItems = nav[category].filter((item) => item.published !== false)
               if (publishedItems.length === 0 && !fallbackHref) return null
               return (

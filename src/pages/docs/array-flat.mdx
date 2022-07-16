@@ -13,12 +13,12 @@ Given an array that contains many arrays, return a new array where all items fro
 ```ts
 import { flat } from 'radash'
 
-const fish = [
-  ['marlin', 'tuna'],
-  ['bass']
+const gods = [
+  ['ra', 'loki'],
+  ['zues']
 ]
 
-flat(fish) // => [marlin, tuna, bass]
+flat(gods) // => [ra, loki, zues]
 ```
 
 Note, `_.flat` is not recursive and will not flatten children of children of children ... of children. It will only flatten `T[][]` an array of arrays.

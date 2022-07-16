@@ -119,7 +119,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
             )}
           >
             <div className="relative flex items-center justify-between">
-              <Link href="/">
+              <Link href="/docs">
                 <a
                   className="mr-3 flex-none overflow-hidden md:w-auto"
                 >

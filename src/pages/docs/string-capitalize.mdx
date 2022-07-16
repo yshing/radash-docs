@@ -1,0 +1,25 @@
+---
+title: capitalize
+description: Convert a string to a capitalized format
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Given a string returns it with the first letter upper cased and all other letters lower cased.
+
+```ts
+import { capitalize } from 'radash'
+
+capitalize('green fish blue FISH') // => Green fish blue fish
+```
+
+## Testing
+
+<TestingLinkAndPreview module="string" func="capitalize" />
+
+## Source
+
+<SourceLinkAndPreview module="string" func="capitalize" />

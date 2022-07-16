@@ -13,25 +13,21 @@ Given an array of items and desired cluster count, returns an array containing `
 ```ts
 import { cluster } from 'radash'
 
-const fish = [{
-  name: 'Marlin',
-  weight: 105,
-  source: 'ocean'
+const gods = [{
+  name: 'Ra',
+  power: 100
 }, {
-  name: 'Bass',
-  weight: 8,
-  source: 'lake'
+  name: 'Zues',
+  power: 98
 }, {
-  name: 'Trout',
-  weight: 13,
-  source: 'lake'
+  name: 'Loki',
+  power: 72
 }, {
-  name: 'Salmon',
-  weight: 22,
-  source: 'river'
+  name: 'Vishnu',
+  power: 100
 }]
 
-cluster(fish, 2) // => [[marlin, bass], [trout, salmon]]
+cluster(gods, 2) // => [[ra, zues], [loki, vishnu]]
 ```
 
 

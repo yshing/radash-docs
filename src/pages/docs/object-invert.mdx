@@ -1,0 +1,31 @@
+---
+title: invert
+description: Invert the keys and values of an object
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Given an object returns a new object with the keys and values reversed.
+
+```ts
+import { invert } from 'radash'
+
+const powersByGod = {
+  ra: 'sun',
+  loki: 'tricks',
+  zues: 'lighning'
+}
+
+invert(gods) // => { sun: ra, tricks: loki, zues: lightning }
+```
+
+## Testing
+
+<TestingLinkAndPreview module="object" func="invert" />
+
+## Source
+
+<SourceLinkAndPreview module="object" func="invert" />

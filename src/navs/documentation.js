@@ -18,7 +18,6 @@ export const documentationNav = {
   Array: [
     pages['array-boil'],
     pages['array-cluster'],
-    pages['array-draw'],
     pages['array-first'],
     pages['array-last'],
     pages['array-flat'],
@@ -36,7 +35,6 @@ export const documentationNav = {
     pages['array-objectify'],
     pages['array-select'],
     pages['array-unique'],
-    pages['array-shuffle'],
     pages['array-range'],
     pages['array-sift'],
   ],
@@ -57,12 +55,15 @@ export const documentationNav = {
     pages['curry-memo'],
   ],
   Number: [
-    pages['number-random'],
+    pages['number-to-int'],
+    pages['number-to-float'],
   ],
   Object: [
     pages['object-shake'],
     pages['object-map-keys'],
     pages['object-map-values'],
+    pages['object-map-entries'],
+    pages['object-invert'],
     pages['object-lowerize'],
     pages['object-upperize'],
     pages['object-listify'],
@@ -87,6 +88,12 @@ export const documentationNav = {
     pages['string-snake'],
     pages['string-dash'],
     pages['string-template'],
-    pages['string-uid'],
-  ]
+    pages['string-capitalize'],
+  ],
+  Random: [
+    pages['random-draw'],
+    pages['random-shuffle'],
+    pages['random-random'],
+    pages['random-uid'],
+  ],
 }

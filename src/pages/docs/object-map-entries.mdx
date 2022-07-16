@@ -1,0 +1,36 @@
+---
+title: mapEntries
+description: Map the keys and values of an object
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Iterates the entries of an object, calling the given `toKey` and `toValue` functions to generate new entries. It's a `_.mapValues` and `_.mapKeys` in one. Both the `toKey` and `toValue` functions are passed an object with both the key and value for the current entry being mapped -- `toKey: (entry: { key, value }) => newKey`.
+
+```ts
+import { mapEntries } from 'radash'
+
+const ra = {
+  name: 'Ra',
+  power: 'sun',
+  rank: 100,
+  culture: 'egypt'
+}
+
+mapEntries(
+  ra, 
+  e => e.key.toUpperCase(),
+  e => `${e.value}`
+) // => { NAME: 'Ra', POWER: 'sun', RANK: '100', CULTURE: 'egypt' }
+```
+
+## Testing
+
+<TestingLinkAndPreview module="object" func="mapEntries" />
+
+## Source
+
+<SourceLinkAndPreview module="object" func="mapEntries" />

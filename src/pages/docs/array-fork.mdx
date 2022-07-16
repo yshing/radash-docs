@@ -13,21 +13,21 @@ Given an array of items and a condition, returns two arrays where the first cont
 ```ts
 import { fork } from 'radash'
 
-const fish = [{
-  name: 'Marlin',
-  weight: 105,
-  source: 'ocean'
+const gods = [{
+  name: 'Ra',
+  power: 100
 }, {
-  name: 'Bass',
-  weight: 8,
-  source: 'lake'
+  name: 'Zues',
+  power: 98
 }, {
-  name: 'Trout',
-  weight: 13,
-  source: 'lake'
+  name: 'Loki',
+  power: 72
+}, {
+  name: 'Vishnu',
+  power: 100
 }]
 
-const [lakeFish, otherFish] = fork(fish, f => f.source === 'lake')
+const [finalGods, lesserGods] = fork(gods, f => f.power > 90) // [[ra, vishnu], [zues, loki]]
 ```
 
 ## Testing
