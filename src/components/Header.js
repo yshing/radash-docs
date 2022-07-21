@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { VersionSwitcher } from '@/components/VersionSwitcher'
-import { SearchButton } from '@/components/Search'
 import Router from 'next/router'
 import { Logo } from '@/components/Logo'
 import { Dialog } from '@headlessui/react'
@@ -146,22 +145,6 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                   </a>
                 </div>
               </div>
-              {/* <SearchButton className="ml-auto text-slate-500 w-8 h-8 -my-1 flex items-center justify-center hover:text-slate-600 lg:hidden  ">
-                <span className="sr-only">Search</span>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="m19 19-3.5-3.5" />
-                  <circle cx="11" cy="11" r="6" />
-                </svg>
-              </SearchButton> */}
             </div>
           </div>
           {hasNav && (

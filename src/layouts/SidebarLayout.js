@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { createContext, forwardRef, useRef } from 'react'
+import { createContext, forwardRef, useRef, useContext } from 'react'
 import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect'
 import clsx from 'clsx'
-import { SearchButton } from '@/components/Search'
+import { NavSearchButton, SearchContext } from '@/components/NavSearchButton'
 import { Dialog } from '@headlessui/react'
 
 export const SidebarContext = createContext()
@@ -62,7 +62,7 @@ function nearestScrollableContainer(el) {
   return el
 }
 
-function Nav({ nav, children, fallbackHref, mobile = false }) {
+function Nav({ nav, children, fallbackHref, filter, mobile = false }) {
   const router = useRouter()
   const activeItemRef = useRef()
   const previousActiveItemRef = useRef()
@@ -98,45 +98,10 @@ function Nav({ nav, children, fallbackHref, mobile = false }) {
   return (
     <nav ref={scrollRef} id="nav" className="lg:text-sm lg:leading-6 relative">
       <div className="sticky top-0 -ml-0.5 pointer-events-none">
-        {/* {!mobile && <div className="h-10 bg-white " />} */}
-        {/* <div className="bg-white  relative pointer-events-auto">
-          <SearchButton className="hidden w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300   ">
-            {({ actionKey }) => (
-              <>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  aria-hidden="true"
-                  className="mr-3 flex-none"
-                >
-                  <path
-                    d="m19 19-3.5-3.5"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <circle
-                    cx="11"
-                    cy="11"
-                    r="6"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Quick search...
-                {actionKey && (
-                  <span className="ml-auto pl-3 flex-none text-xs font-semibold">
-                    {actionKey[0]}K
-                  </span>
-                )}
-              </>
-            )}
-          </SearchButton>
-        </div> */}
+        {!mobile && <div className="h-10 bg-white " />}
+        <div className="bg-white  relative pointer-events-auto">
+          <NavSearchButton className="hidden w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300" />
+        </div>
         {!mobile && <div className="h-8 bg-gradient-to-b from-white " />}
       </div>
       <ul>
@@ -145,8 +110,11 @@ function Nav({ nav, children, fallbackHref, mobile = false }) {
         {nav &&
           Object.keys(nav)
             .map((category) => {
-              console.log(nav[category])
-              let publishedItems = nav[category].filter((item) => item.published !== false)
+              let publishedItems = nav[category].filter((item) => {
+                if (item.published === false) return false
+                if (!filter) return true
+                return item.title.toLowerCase().includes(filter.toLowerCase())
+              })
               if (publishedItems.length === 0 && !fallbackHref) return null
               return (
                 <li key={category} className="mt-12 lg:mt-8">
@@ -389,12 +357,13 @@ export function SidebarLayout({
   fallbackHref,
   layoutProps: { allowOverflow = true } = {},
 }) {
+  let { filter } = useContext(SearchContext)
   return (
     <SidebarContext.Provider value={{ nav, navIsOpen, setNavIsOpen }}>
       <Wrapper allowOverflow={allowOverflow}>
         <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="hidden lg:block fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto">
-            <Nav nav={nav} fallbackHref={fallbackHref}>
+            <Nav nav={nav} filter={filter} fallbackHref={fallbackHref}>
               {sidebar}
             </Nav>
           </div>
@@ -425,7 +394,7 @@ export function SidebarLayout({
               />
             </svg>
           </button>
-          <Nav nav={nav} fallbackHref={fallbackHref} mobile={true}>
+          <Nav nav={nav} filter={filter} fallbackHref={fallbackHref} mobile={true}>
             {sidebar}
           </Nav>
         </div>

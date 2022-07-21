@@ -10,7 +10,7 @@ import Head from 'next/head'
 import socialCardLarge from '@/img/social-card-large.jpg'
 import { ResizeObserver } from '@juggle/resize-observer'
 import 'intersection-observer'
-import { SearchProvider } from '@/components/Search'
+import { NavSearchProvider } from '@/components/NavSearchButton'
 
 if (typeof window !== 'undefined' && !('ResizeObserver' in window)) {
   window.ResizeObserver = ResizeObserver
@@ -96,7 +96,7 @@ export default function App({ Component, pageProps, router }) {
         <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/feeds/atom.xml" />
         <link rel="alternate" type="application/json" title="JSON Feed" href="/feeds/feed.json" />
       </Head>
-      <SearchProvider>
+      <NavSearchProvider>
         {showHeader && (
           <Header
             hasNav={Boolean(Component.layoutProps?.Layout?.nav)}
@@ -109,7 +109,7 @@ export default function App({ Component, pageProps, router }) {
         <Layout {...layoutProps}>
           <Component section={section} {...pageProps} />
         </Layout>
-      </SearchProvider>
+      </NavSearchProvider>
     </>
   )
 }

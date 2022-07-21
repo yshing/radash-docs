@@ -36,6 +36,7 @@ export const documentationNav = {
     pages['array-select'],
     pages['array-unique'],
     pages['array-range'],
+    pages['array-list'],
     pages['array-sift'],
   ],
   Async: [
@@ -45,6 +46,7 @@ export const documentationNav = {
     pages['async-retry'],
     pages['async-sleep'],
     pages['async-try'],
+    pages['async-parallel'],
   ],
   Curry: [
     pages['curry-chain'],
