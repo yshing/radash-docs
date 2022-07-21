@@ -1,0 +1,35 @@
+---
+title: parallel
+description: Run many async function in parallel
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Like `_.map` but built specifically to run the async callback functions
+in parallel. The first argument is a limit of how many functions should
+be allowed to run at once.
+
+Returns a list of objects. Each has a `result` and `error` property.
+
+```ts
+import { parallel } from 'radash'
+
+const userIds = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// Will run the find user async function 3 at a time
+// starting another request when one of the 3 is freed
+const users = await parallel(3, userIds, async (userId) => {
+  return await api.users.find(userId)
+})
+```
+
+## Testing
+
+<TestingLinkAndPreview module="async" func="parallel" />
+
+## Source
+
+<SourceLinkAndPreview module="async" func="parallel" />
