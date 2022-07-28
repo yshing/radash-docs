@@ -1,0 +1,29 @@
+---
+title: diff
+description: Create an array of differences between two arrays
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Given two arrays, returns an array of all items that exist in the first array
+but do not exist in the second array.
+
+```ts
+import { diff } from 'radash'
+
+const oldWorldGods = ['ra', 'zues']
+const newWorldGods = ['vishnu', 'zues']
+
+diff(oldWorldGods, newWorldGods) // => ['ra']
+```
+
+## Testing
+
+<TestingLinkAndPreview module="array" func="diff" />
+
+## Source
+
+<SourceLinkAndPreview module="array" func="diff" />

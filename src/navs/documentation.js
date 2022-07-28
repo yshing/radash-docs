@@ -38,6 +38,7 @@ export const documentationNav = {
     pages['array-range'],
     pages['array-list'],
     pages['array-sift'],
+    pages['array-diff'],
   ],
   Async: [
     pages['async-map'],
@@ -72,6 +73,7 @@ export const documentationNav = {
     pages['object-pick'],
     pages['object-omit'],
     pages['object-get'],
+    pages['object-zip'],
   ],
   Typed: [
     pages['typed-is-symbol'],

@@ -2,9 +2,12 @@
 .token.class-name,
 .token.selector,
 .token.selector .class,
-.token.selector.class,
-.token.function {
+.token.selector.class {
   @apply text-pink-400;
+}
+
+.token.function {
+  @apply text-yellow-400;
 }
 
 .token.attr-name,
@@ -12,13 +15,17 @@
 .token.rule,
 .token.pseudo-class,
 .token.important {
-  @apply text-slate-300;
+  @apply text-pink-400;
 }
 
 .token.attr-value,
 .token.class,
 .token.string {
   @apply text-sky-300;
+}
+
+.token.number {
+  @apply text-green-300;
 }
 
 .token.punctuation,
