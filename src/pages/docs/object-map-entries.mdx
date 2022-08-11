@@ -8,7 +8,10 @@ import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
 
 ## Basic usage
 
-Iterates the entries of an object, calling the given `toKey` and `toValue` functions to generate new entries. It's a `_.mapValues` and `_.mapKeys` in one. Both the `toKey` and `toValue` functions are passed an object with both the key and value for the current entry being mapped -- `toKey: (entry: { key, value }) => newKey`.
+Iterates the entries of an object, calling the given `toEntry` callback function 
+to generate new entries. It's a `_.mapValues` and `_.mapKeys` 
+in one. The `toEntry` callback function should return an array with
+two items `[key, value]` (a.k.a the new entry).
 
 ```ts
 import { mapEntries } from 'radash'
@@ -22,8 +25,7 @@ const ra = {
 
 mapEntries(
   ra, 
-  e => e.key.toUpperCase(),
-  e => `${e.value}`
+  (key, value) => [key.toUpperCase(), `${value}]
 ) // => { NAME: 'Ra', POWER: 'sun', RANK: '100', CULTURE: 'egypt' }
 ```
 

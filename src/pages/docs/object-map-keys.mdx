@@ -8,7 +8,8 @@ import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
 
 ## Basic usage
 
-Given an object and a mapping function, returns a new object with all the keys mapped.
+Given an object and a `toKey` callback function, returns a new object with all the keys 
+mapped through the `toKey` function. The callback is given both the key and value for each entry.
 
 ```ts
 import { mapKeys } from 'radash'
@@ -18,7 +19,8 @@ const ra = {
   power: 'sun'
 }
 
-mapKeys(ra, k => k.toUpperCase()) // => { MODE, POWER }
+mapKeys(ra, key => key.toUpperCase()) // => { MODE, POWER }
+mapKeys(ra, (key, value) => value) // => { god: 'god', power: 'power' }
 ```
 
 ## Testing
