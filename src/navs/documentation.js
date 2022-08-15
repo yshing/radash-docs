@@ -56,6 +56,7 @@ export const documentationNav = {
     pages['curry-partob'],
     pages['curry-proxied'],
     pages['curry-memo'],
+    pages['curry-throttle']
   ],
   Number: [
     pages['number-to-int'],

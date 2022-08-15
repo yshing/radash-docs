@@ -10,9 +10,7 @@ import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
 
 Like `_.map` but built specifically to run the async callback functions
 in parallel. The first argument is a limit of how many functions should
-be allowed to run at once.
-
-Returns a list of objects. Each has a `result` and `error` property.
+be allowed to run at once. Returns an array of results.
 
 ```ts
 import { parallel } from 'radash'
@@ -24,6 +22,26 @@ const userIds = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 const users = await parallel(3, userIds, async (userId) => {
   return await api.users.find(userId)
 })
+```
+
+## Errors
+
+When all work is complete parallel will check for errors. If any
+occurred they will all be thrown in a single `AggregateError` that 
+has an `errors` property that is all the errors that were thrown.
+
+```ts
+import { parallel, try as tryit } from 'radash'
+
+const userIds = [1, 2, 3]
+
+const [err, users] = await tryit(parallel)(3, userIds, async (userId) => {
+  throw new Error(`No, I don\'t want to find user ${userId}`)
+})
+
+console.log(err) // => AggregateError
+console.log(err.errors) // => [Error, Error, Error]
+console.log(err.errors[1].message) // => No, I don't want to find user 2
 ```
 
 ## Testing

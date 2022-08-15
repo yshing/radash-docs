@@ -15,7 +15,7 @@ import { series } from 'radash'
 
 type Weekday = 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday';
 
-const weekdaySeries = _.series<Weekday>(
+const weekdays = _.series<Weekday>(
   'monday',
   'tuesday',
   'wednesday',
@@ -23,8 +23,14 @@ const weekdaySeries = _.series<Weekday>(
   'friday'
 )
 
-weekdaySeries.min('tuesday', 'thursday') // => 'tuesday'
-weekdaySeries.max('wednesday', 'monday') // => 'wednesday'
+weekdays.min('tuesday', 'thursday') // => 'tuesday'
+weekdays.max('wednesday', 'monday') // => 'wednesday'
+weekdays.next('wednesday') // => 'thursday'
+weekdays.previous('tuesday') // => 'monday'
+weekdays.first() // => 'monday'
+weekdays.last() // => 'friday'
+weekdays.next('friday') // => null
+weekdays.next('friday', weekdays.first()) // => 'monday'
 ```
 
 ## Testing
