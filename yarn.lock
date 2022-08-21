@@ -4985,10 +4985,10 @@ quick-lru@^5.1.1:
   version "5.1.1"
   resolved "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
 
-radash@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/radash/-/radash-6.0.0.tgz#2602cdb2de8fc419ae6c45adc51c6f206ca2e43a"
-  integrity sha512-kuHqK6oelV9pdkp9/TiO+IXdEo6wVTKK1Tp2LiIvScx0FMHF/C4/ySv+xuqoyPpnkin9NUx8ES62aBA5g3f8xA==
+radash@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/radash/-/radash-7.0.0.tgz#cf480929a3c8680da0b86c143111767fd27d50ce"
+  integrity sha512-O/80ZyEEJtCeB3XSu3HTq7QPNI5DFig6Sfa0KtkoUlexBBiQ5QxtVK9ies/lZ5AdUTKREsc+epgKj9hjsEySXg==
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"

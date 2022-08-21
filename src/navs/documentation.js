@@ -16,8 +16,10 @@ export const documentationNav = {
     pages['core-concepts'],
   ],
   Array: [
+    pages['array-alphabetical'],
     pages['array-boil'],
     pages['array-cluster'],
+    pages['array-counting'],
     pages['array-first'],
     pages['array-last'],
     pages['array-flat'],

@@ -1,0 +1,43 @@
+---
+title: alphabetical
+description: Sorts an array of objects alphabetically by a property
+---
+
+import { SourceLinkAndPreview } from '@/components/SourceLinkAndPreview'
+import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
+
+## Basic usage
+
+Given an array of objects and a callback function used to determine
+the property to use for sorting returns a new array with the objects
+sorted alphabetically.
+
+```ts
+import { alphabetical } from 'radash'
+
+const gods = [{
+  name: 'Ra',
+  power: 100
+}, {
+  name: 'Zues',
+  power: 98
+}, {
+  name: 'Loki',
+  power: 72
+}, {
+  name: 'Vishnu',
+  power: 100
+}]
+
+alphabetical(gods, g => g.name) // => [Loki, Ra, Vishnu, Zues]
+alphabetical(gods, g => g.name, 'desc') // => [Zues, Vishnu, Ra, Loki]
+```
+
+
+## Testing
+
+<TestingLinkAndPreview module="array" func="alphabetical" />
+
+## Source
+
+<SourceLinkAndPreview module="array" func="alphabetical" />
