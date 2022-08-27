@@ -8,7 +8,7 @@ import { TestingLinkAndPreview } from '@/components/TestingLinkAndPreview'
 
 ## Basic usage
 
-Given a start, end, and optional step size returns a geneartor that will yeild from start to end by step size (which deafults to one). A hat tip to Python's `range` functionality. Useful for replacing `for (let i = 0)` with `for of`. Range will return a generator that `for of` will call one step at a time so it's safe to create large ranges.
+Given a start, end, and optional step size returns a generator that will yield from start to end by step size (which defaults to one). A hat tip to Python's `range` functionality. Useful for replacing `for (let i = 0)` with `for of`. Range will return a generator that `for of` will call one step at a time, so it's safe to create large ranges.
 
 ```ts
 import { range } from 'radash'
